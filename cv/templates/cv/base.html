@@ -14,14 +14,13 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{% url 'home' %}"> Amek's Blog </a>
+                    <a class="navbar-brand" href="{% url 'home' %}"> Amadeusz Iwanowski </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav" aria-controls="mynav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="mynav">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a href="{% url 'about' %}" class="nav-link">About</a></li>
                         <li class="nav-item active">
                             <a class="nav-link" href="https://www.linkedin.com/in/amadeusz-iwanowski/">LinkedIn</a>
                         </li>
@@ -34,35 +33,8 @@
         </nav>
 
         <div class="container">
-            <h1 class="text-center">Amek's BLOG</h1>
-            <h1>{{ post.title }}</h1>
-            <br/>
-            {{ post.pub_date_pretty }}
-            <br/>
-            <br/>
-            <div class="text-center">
-                <img src="{{ post.image.url }}" class="rounded mx-auto d-bloc center-block img-responsive" style="max-width: 500px;"/>
-            </div>
-            <br />
-            {{ post.body }}
-
-            <br/>
-            <br/>
-
-            <div id="disqus_thread"></div>
-            <script>
-                var disqus_config = function () {
-                    this.page.identifier = 'posts-{{ post.id }}';
-                };
-                (function() { // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
-                s.src = 'https://amadeusz-iwanowski.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
+            {% block content %}
+            {% endblock %}
         </div>
 
         <!-- Optional JavaScript -->

@@ -1,0 +1,31 @@
+{% extends 'cv/base.html' %}
+
+{% block content %}
+<h1>Fundsz randkowy</h1>
+<h2>Marlena</h2>
+<br/>
+
+<form action="{% url 'down' 1 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="DOWN"/>
+</form>
+{{marlena_penalty}}
+<form action="{% url 'up' 1 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="UP"/>
+</form>
+<br/>
+<br/>
+<br/>
+<h2>Amadeusz</h2>
+<br/>
+<form action="{% url 'down' 2 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="DOWN"/>
+</form>
+{{ amadeusz_penalty }}
+<form action="{% url 'up' 2 %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="UP"/>
+</form>
+{% endblock %}
