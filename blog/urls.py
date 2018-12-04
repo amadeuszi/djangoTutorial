@@ -19,12 +19,14 @@ from django.urls import path
 
 from blog import settings
 import cv.views
+import plans.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', cv.views.home, name='home'),
     path('fund/', cv.views.fund, name='fund'),
-    path('up/<int:id>/', cv.views.up, name='up'),
-    path('down/<int:id>/', cv.views.down, name='down'),
-    path('', cv.views.home, name='down'),
+    path('diet/', cv.views.diet, name='diet'),
+    path('up/', cv.views.up, name='up'),
+    path('down/', cv.views.down, name='down'),
+    path('schedule-add/', plans.views.schedule_add, name='schedule_add'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

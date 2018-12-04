@@ -1,9 +1,17 @@
 {% extends 'cv/base.html' %}
 
 {% block content %}
-<h1>Fundsz randkowy</h1>
-<br/>
+<h1>Dieta</h1>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wG3w20Pv8eA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<h5>Start 03-12-2018</h5>
+<h5>Koniec 03-03-2018</h5>
+<h5>Days from start {{days_from_start}}</h5>
+<br/>
+<br/>
+<hr/>
 {% for user in users %}
     <form action="{% url 'up' %}" method="post">
         {% csrf_token %}
@@ -12,7 +20,7 @@
         <input type="hidden" value="diet" name="view_name"/>
         <input type="submit" value="UP"/>
     </form>
-    <h3>{{user.name}} - fundusz: {{user.diet_strike}}</h3>
+    <h3>{{user.name}} - dieta: {{user.diet_strike}}</h3>
     <form action="{% url 'down' %}" method="post">
         {% csrf_token %}
         <input type="hidden" value="{{user.name}}" name="name"/>

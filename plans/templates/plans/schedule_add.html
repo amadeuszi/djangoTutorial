@@ -1,0 +1,43 @@
+{% extends 'cv/base.html' %}
+
+{% block content %}
+<br/>
+<br/>
+<h1>Add your schedule</h1>
+<form action="{% url 'schedule_add' %}" method="post" >
+    {% csrf_token %}
+    Day:
+    <input id="day" name="day_date" value="{{date}}"/>
+    <br/>
+    <br/>
+    Duration:
+    <input id="duration" name="duration"/> h
+    <br/>
+    <br/>
+    What to do:
+    <input size="65" name="description"/>
+    <br/>
+    <br/>
+    <input id="submit" type="submit" value="Add" />
+</form>
+
+<br/>
+<br/>
+<br/>
+<hr/>
+<h2>TO DO ON {{ date }}</h2>
+<table class="table table-striped">
+    {% for schedule in current_schedule_list %}
+    <tr>
+        <td>{{ schedule.description }}</td>
+        <td>{{ schedule.duration }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<script>
+    $(function() {
+        $('#day').datepicker()
+    })
+</script>
+{% endblock %}
