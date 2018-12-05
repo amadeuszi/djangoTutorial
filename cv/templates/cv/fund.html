@@ -8,15 +8,15 @@
     <form action="{% url 'up' %}" method="post">
         {% csrf_token %}
         <input type="hidden" value="{{user.name}}" name="name"/>
-        <input type="hidden" value="diet_strike" name="penalty_name"/>
+        <input type="hidden" value="penalty" name="penalty_name"/>
         <input type="hidden" value="fund" name="view_name"/>
         <input type="submit" value="UP"/>
     </form>
-    <h3>{{user.name}} - fundusz: {{user.diet_strike}}</h3>
+    <h3>{{user.name}} - fundusz: {{user.penalty}}</h3>
     <form action="{% url 'down' %}" method="post">
         {% csrf_token %}
         <input type="hidden" value="{{user.name}}" name="name"/>
-        <input type="hidden" value="diet_strike" name="penalty_name"/>
+        <input type="hidden" value="penalty" name="penalty_name"/>
         <input type="hidden" value="fund" name="view_name"/>
         <input type="submit" value="DOWN"/>
     </form>
